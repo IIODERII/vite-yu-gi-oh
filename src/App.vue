@@ -1,5 +1,6 @@
 <template>
-  <SpashPage v-if="cards.splash" />
+  <SplashPage v-if="cards.cardList.length < cards.numberOfCards" />
+
   <div v-else>
     <HeaderComponent />
     <MainComponent />
@@ -9,14 +10,14 @@
 <script>
 import HeaderComponent from "./components/HeaderComponent.vue";
 import MainComponent from "./components/main/MainComponent.vue";
-import SpashPage from "./components/SpashPage.vue";
+import SplashPage from "./components/SplashPage.vue";
 import { cards } from "./store";
 
 export default {
   components: {
     HeaderComponent,
     MainComponent,
-    SpashPage,
+    SplashPage,
   },
   data() {
     return {

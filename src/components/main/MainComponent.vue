@@ -39,23 +39,6 @@ export default {
       cards,
     };
   },
-  methods: {
-    getCards() {
-      axios
-        .get(
-          this.cards.urlStart +
-            this.cards.urlMiddle +
-            cards.numberOfCards +
-            this.cards.urlEnd
-        )
-        .then((element) => {
-          this.cards.cardList = element.data.data;
-        });
-    },
-  },
-  created() {
-    this.getCards();
-  },
 };
 </script>
 

@@ -6,5 +6,5 @@ export const cards = reactive({
   urlMiddle: `cardinfo.php?num=`,
   urlEnd: "&offset=0",
   cardList: [],
-  splash: true,
+  loading: false,
 });
