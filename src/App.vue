@@ -27,8 +27,10 @@ export default {
   methods: {
     splash() {
       if (
-        isNaN(parseInt(cards.numberOfCards)) ||
-        cards.cardList.length < parseInt(cards.numberOfCards)
+        cards.cardList.length < parseInt(cards.numberOfCards) ||
+        parseInt(cards.numberOfCards) === 0 ||
+        cards.numberOfCards === "" ||
+        isNaN(parseInt(cards.numberOfCards))
       ) {
         return true;
       }
