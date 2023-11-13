@@ -17,10 +17,7 @@
 
     <div class="loading" v-else>
       <span class="px-5">Loading...</span>
-      <img
-        src="https://ms.yugipedia.com//thumb/e/e5/Back-EN.png/257px-Back-EN.png"
-        alt="Loading Card"
-      />
+      <img src="../assets/images/download.jpg" alt="Loading Card" />
     </div>
   </div>
 </template>
