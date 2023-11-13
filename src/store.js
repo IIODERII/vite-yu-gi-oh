@@ -7,4 +7,5 @@ export const cards = reactive({
   urlEnd: "&offset=0",
   cardList: [],
   loading: false,
+  splash: true,
 });

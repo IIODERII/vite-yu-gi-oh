@@ -1,5 +1,5 @@
 <template>
-  <SplashPage v-if="cards.cardList.length < cards.numberOfCards" />
+  <SplashPage v-if="splash()" />
 
   <div v-else>
     <HeaderComponent />
@@ -23,6 +23,16 @@ export default {
     return {
       cards,
     };
+  },
+  methods: {
+    splash() {
+      if (
+        isNaN(parseInt(cards.numberOfCards)) ||
+        cards.cardList.length < parseInt(cards.numberOfCards)
+      ) {
+        return true;
+      }
+    },
   },
 };
 </script>

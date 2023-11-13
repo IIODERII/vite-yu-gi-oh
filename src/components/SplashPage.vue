@@ -38,15 +38,29 @@ export default {
   },
   methods: {
     generate() {
-      axios
-        .get(
-          cards.urlStart + cards.urlMiddle + cards.numberOfCards + cards.urlEnd
-        )
-        .then((element) => {
-          cards.cardList = element.data.data;
-        });
+      let isNumero = true;
+      for (let index = 0; index < cards.numberOfCards.length; index++) {
+        const element = cards.numberOfCards[index];
+        if (isNaN(parseInt(element))) {
+          isNumero = false;
+          return;
+        }
+      }
+      if (isNumero) {
+        cards.loading = true;
+        axios
+          .get(
+            cards.urlStart +
+              cards.urlMiddle +
+              cards.numberOfCards +
+              cards.urlEnd
+          )
+          .then((element) => {
+            cards.cardList = element.data.data;
+          });
 
-      cards.loading = true;
+        console.log(parseInt(cards.numberOfCards));
+      }
     },
   },
 };
