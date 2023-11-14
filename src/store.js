@@ -8,4 +8,5 @@ export const cards = reactive({
   loading: false,
   splash: true,
   archetypeList: [],
+  error: "",
 });

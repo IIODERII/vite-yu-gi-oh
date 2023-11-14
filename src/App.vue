@@ -7,6 +7,9 @@
 
   <div v-else>
     <HeaderComponent />
+    <div class="alert alert-danger mx-5 fw-bold" v-if="cards.error">
+      {{ cards.error }}
+    </div>
     <MainComponent />
   </div>
 </template>
@@ -53,10 +56,16 @@ export default {
         cards.loading = true;
         this.params.num = cards.numberOfCards;
         const url = cards.urlStart + cards.urlEnd;
-        axios.get(url, { params: this.params }).then((element) => {
-          cards.cardList = element.data.data;
-          cards.loading = false;
-        });
+        axios
+          .get(url, { params: this.params })
+          .then((element) => {
+            cards.cardList = element.data.data;
+            cards.loading = false;
+          })
+          .catch(function (error) {
+            console.log(error);
+            this.cards.error = error.message;
+          });
       }
     },
   },

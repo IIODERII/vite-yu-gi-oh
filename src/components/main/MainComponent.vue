@@ -54,11 +54,16 @@ export default {
       cards.loading = true;
       this.params.archetype = value;
       const url = cards.urlStart + cards.urlEnd;
-      console.log(value);
-      axios.get(url, { params: this.params }).then((element) => {
-        cards.cardList = element.data.data;
-        cards.loading = false;
-      });
+      axios
+        .get(url, { params: this.params })
+        .then((element) => {
+          cards.cardList = element.data.data;
+          cards.loading = false;
+        })
+        .catch(function (error) {
+          console.log(error);
+          this.cards.error = error.message;
+        });
     },
   },
 };
