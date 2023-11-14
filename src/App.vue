@@ -52,10 +52,10 @@ export default {
         cards.splash = false;
         cards.loading = true;
         this.params.num = cards.numberOfCards;
-        cards.loading = false;
         const url = cards.urlStart + cards.urlEnd;
         axios.get(url, { params: this.params }).then((element) => {
           cards.cardList = element.data.data;
+          cards.loading = false;
         });
       }
     },
@@ -74,7 +74,7 @@ export default {
 
 <style lang="scss" scoped>
 .loading {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;

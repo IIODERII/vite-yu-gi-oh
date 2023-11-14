@@ -9,7 +9,8 @@
       v-model="selectValue"
       @change="$emit('selectChange', selectValue)"
     >
-      <option selected value="">All</option>
+      <option selected :value="null">All</option>
+
       <option
         v-for="archetype in cards.archetypeList"
         :key="archetype"
