@@ -1,9 +1,7 @@
 <template>
   <main>
     <div class="container p-5">
-      <select class="form-select mb-4 mx-3" aria-label="Default select example">
-        <option selected>Archetipi</option>
-      </select>
+      <SelectComponent @select-change="reloadCards" />
 
       <div class="bg-white p-5">
         <div>
@@ -29,14 +27,32 @@
 import MainCard from "./MainCard.vue";
 import axios from "axios";
 import { cards } from "../../store";
+import SelectComponent from "./SelectComponent.vue";
 export default {
   name: "MainComponent",
   components: {
     MainCard,
+    SelectComponent,
   },
   data() {
     return {
       cards,
+      params: {
+        num: cards.numberOfCards,
+        offset: 0,
+        archetype: null,
+      },
+      methods: {
+        reloadCards(selectValue) {
+          if (selectValue !== "") {
+            this.params.archetype = selectValue;
+            const url = cards.urlStart + cards.urlEnd;
+            axios.get(url, { params: this.params }).then((element) => {
+              cards.cardList = element.data.data;
+            });
+          }
+        },
+      },
     };
   },
 };
@@ -47,8 +63,5 @@ export default {
 
 main {
   background-color: $primaryColor;
-  select {
-    max-width: 200px;
-  }
 }
 </style>

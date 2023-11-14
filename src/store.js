@@ -7,4 +7,5 @@ export const cards = reactive({
   cardList: [],
   loading: false,
   splash: true,
+  archetypeList: [],
 });
