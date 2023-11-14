@@ -1,9 +1,9 @@
 <template>
   <main>
     <div class="container p-5">
-      <div class="d-flex align-items-center">
+      <div class="d-md-flex align-items-center">
         <SelectComponent @select-change="reloadCards" />
-        <button class="btn btn-dark mt-3" @click="cards.splash = true">
+        <button class="btn btn-dark m-3" @click="cards.splash = true">
           Cambia il numero di carte da generare
         </button>
       </div>
@@ -74,5 +74,9 @@ export default {
 
 main {
   background-color: $primaryColor;
+
+  button {
+    max-width: 200px;
+  }
 }
 </style>

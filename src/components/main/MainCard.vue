@@ -1,5 +1,5 @@
 <template>
-  <div class="col-2 text-center">
+  <div class="col-lg-3 col-12 col-sm-6 col-md-4 col-xl-2 text-center mycol">
     <div class="h-100">
       <div>
         <img :src="photo" :alt="title" @click="bigger()" :style="big" />
@@ -29,7 +29,7 @@ export default {
     bigger() {
       if (this.big === "") {
         this.big =
-          "height: 95vh; width: auto; position: fixed; top: 2.5vh; right: 50%; transform: translateX(50%); z-index: 2000; transition: all 0.5s;";
+          "max-height: 95vh; width: auto; position: fixed; top: 2.5vh; right: 50%; transform: translateX(50%); z-index: 2000; transition: all 0.5s;";
       } else {
         this.big = "";
       }
@@ -41,8 +41,7 @@ export default {
 <style lang="scss" scoped>
 @use "../../assets/styles/partials/variables" as *;
 
-.col-2 {
-  width: calc(100% / 5);
+.mycol {
   text-wrap: balance;
 
   > div {
@@ -50,12 +49,16 @@ export default {
   }
 
   img {
-    width: 100%;
+    max-width: 100%;
     &:hover {
       transform: scale(1.1);
       transition: transform 0.2s;
       cursor: pointer;
     }
   }
+}
+
+.col-xl-2 {
+  min-width: 20%;
 }
 </style>
