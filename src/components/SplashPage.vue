@@ -24,7 +24,6 @@
 
 <script>
 import { cards } from "../store";
-import axios from "axios";
 
 export default {
   name: "SplashPage",
@@ -35,31 +34,7 @@ export default {
   },
   methods: {
     generate() {
-      let isNumero = true;
-      for (let index = 0; index < cards.numberOfCards.length; index++) {
-        const element = cards.numberOfCards[index];
-        if (isNaN(parseInt(element)) || cards.numberOfCards === "") {
-          isNumero = false;
-          return;
-        }
-      }
-      if (
-        isNumero &&
-        parseInt(cards.numberOfCards) > 0 &&
-        parseInt(cards.numberOfCards) <= 12500
-      ) {
-        cards.loading = true;
-        axios
-          .get(
-            cards.urlStart +
-              cards.urlMiddle +
-              cards.numberOfCards +
-              cards.urlEnd
-          )
-          .then((element) => {
-            cards.cardList = element.data.data;
-          });
-      }
+      this.$emit("generate");
     },
   },
 };
