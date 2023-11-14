@@ -1,22 +1,24 @@
 <template>
-  <label for="archetypes" class="mx-3 fw-bold py-2">Archetypes</label>
-  <select
-    class="form-select mb-4 mx-3"
-    aria-label="Default select example"
-    name="archetypes"
-    id="archetypes"
-    v-model="selectValue"
-    @change="$emit('selectChange', selectValue)"
-  >
-    <option selected value="">All</option>
-    <option
-      v-for="archetype in cards.archetypeList"
-      :key="archetype"
-      :value="archetype"
+  <div>
+    <label for="archetypes" class="mx-3 fw-bold py-2">Archetypes</label>
+    <select
+      class="form-select mb-4 mx-3"
+      aria-label="Default select example"
+      name="archetypes"
+      id="archetypes"
+      v-model="selectValue"
+      @change="$emit('selectChange', selectValue)"
     >
-      {{ archetype }}
-    </option>
-  </select>
+      <option selected value="">All</option>
+      <option
+        v-for="archetype in cards.archetypeList"
+        :key="archetype"
+        :value="archetype"
+      >
+        {{ archetype }}
+      </option>
+    </select>
+  </div>
 </template>
 
 <script>

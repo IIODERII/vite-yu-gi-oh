@@ -2,7 +2,7 @@
   <div
     class="splash text-white text-center d-flex align-items-center justify-content-center fs-2 flex-wrap"
   >
-    <div class="w-100" v-if="!cards.loading">
+    <div class="w-100">
       <h2 class="my-4">Inserire il numero di carte da generare</h2>
       <input
         type="text"
@@ -13,11 +13,6 @@
       <button class="btn d-block mx-auto my-4" @click="generate()">
         Genera carte
       </button>
-    </div>
-
-    <div class="loading" v-else>
-      <span class="px-5">Loading...</span>
-      <img src="../assets/images/download.jpg" alt="Loading Card" />
     </div>
   </div>
 </template>
@@ -62,26 +57,6 @@ export default {
 
     &:hover {
       background-color: #ffac43;
-    }
-  }
-
-  .loading {
-    position: absolute;
-    img {
-      width: 50px;
-      animation-name: rotate;
-      animation-duration: 1.2s;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
-    }
-
-    @keyframes rotate {
-      0% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg);
-      }
     }
   }
 }

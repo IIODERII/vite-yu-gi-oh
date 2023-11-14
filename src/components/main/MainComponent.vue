@@ -42,18 +42,19 @@ export default {
         offset: 0,
         archetype: null,
       },
-      methods: {
-        reloadCards(selectValue) {
-          if (selectValue !== "") {
-            this.params.archetype = selectValue;
-            const url = cards.urlStart + cards.urlEnd;
-            axios.get(url, { params: this.params }).then((element) => {
-              cards.cardList = element.data.data;
-            });
-          }
-        },
-      },
     };
+  },
+  methods: {
+    reloadCards(value) {
+      if (value !== "") {
+        this.params.archetype = value;
+        const url = cards.urlStart + cards.urlEnd;
+        console.log(value);
+        axios.get(url, { params: this.params }).then((element) => {
+          cards.cardList = element.data.data;
+        });
+      }
+    },
   },
 };
 </script>
