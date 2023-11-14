@@ -9,7 +9,7 @@
       v-model="selectValue"
       @change="$emit('selectChange', selectValue)"
     >
-      <option selected :value="null">All</option>
+      <option :value="null" selected>All</option>
 
       <option
         v-for="archetype in cards.archetypeList"
@@ -30,7 +30,7 @@ export default {
   data() {
     return {
       cards,
-      selectValue: "",
+      selectValue: null,
     };
   },
   methods: {},

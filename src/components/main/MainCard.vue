@@ -2,7 +2,7 @@
   <div class="col-2 text-center">
     <div class="h-100">
       <div>
-        <img :src="photo" :alt="title" class="w-100" />
+        <img :src="photo" :alt="title" @click="bigger()" :style="big" />
       </div>
       <div class="text-card px-1">
         <h3 class="text-white py-3">{{ title }}</h3>
@@ -20,6 +20,21 @@ export default {
     title: String,
     archetype: { String, default: "Archetype Not found" },
   },
+  data() {
+    return {
+      big: "",
+    };
+  },
+  methods: {
+    bigger() {
+      if (this.big === "") {
+        this.big =
+          "height: 95vh; width: auto; position: fixed; top: 2.5vh; right: 50%; transform: translateX(50%); z-index: 2000;";
+      } else {
+        this.big = "";
+      }
+    },
+  },
 };
 </script>
 
@@ -32,6 +47,15 @@ export default {
 
   > div {
     background-color: $primaryColor;
+  }
+
+  img {
+    width: 100%;
+    &:hover {
+      transform: scale(1.1);
+      transition: all 0.2s;
+      cursor: pointer;
+    }
   }
 }
 </style>

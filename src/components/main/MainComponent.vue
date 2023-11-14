@@ -1,7 +1,12 @@
 <template>
   <main>
     <div class="container p-5">
-      <SelectComponent @select-change="reloadCards" />
+      <div class="d-flex align-items-center">
+        <SelectComponent @select-change="reloadCards" />
+        <button class="btn btn-dark mt-3" @click="cards.splash = true">
+          Cambia il numero di carte da generare
+        </button>
+      </div>
 
       <div class="bg-white p-5">
         <div>
