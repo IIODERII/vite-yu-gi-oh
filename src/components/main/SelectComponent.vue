@@ -33,16 +33,6 @@ export default {
       selectValue: null,
     };
   },
-  methods: {},
-  created() {
-    axios
-      .get("https://db.ygoprodeck.com/api/v7/archetypes.php")
-      .then((element) => {
-        element.data.forEach((arch) => {
-          cards.archetypeList.push(arch.archetype_name);
-        });
-      });
-  },
 };
 </script>
 

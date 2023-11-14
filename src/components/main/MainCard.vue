@@ -29,7 +29,7 @@ export default {
     bigger() {
       if (this.big === "") {
         this.big =
-          "height: 95vh; width: auto; position: fixed; top: 2.5vh; right: 50%; transform: translateX(50%); z-index: 2000;";
+          "height: 95vh; width: auto; position: fixed; top: 2.5vh; right: 50%; transform: translateX(50%); z-index: 2000; transition: all 0.5s;";
       } else {
         this.big = "";
       }
@@ -53,7 +53,7 @@ export default {
     width: 100%;
     &:hover {
       transform: scale(1.1);
-      transition: all 0.2s;
+      transition: transform 0.2s;
       cursor: pointer;
     }
   }
